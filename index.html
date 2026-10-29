@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>招人｜张美吉业务助理（AI策略方向）· FoundU.ai</title>
+<!--
+美术方向（高饱和海报拼贴风）：
+配色：白底大字报 + 多巴胺色块（柠檬黄 #FFD338 / 荧光粉 #FF5C8A / 电光蓝 #3D7BFF / 薄荷绿 #00C48C），黑字压底。
+字体：系统黑体做正文，超粗大标题，局部等宽字做"标签贴纸"。
+质感：胶带、贴纸、图钉、旋转的文字块、虚线剪刀线，像一间刚刷完墙的创业公司白板墙。
+主视觉：用排版本身做视觉——大字、色块、箭头贴纸，不画人物。
+-->
+<style>
+/* 配色：哑光复古拼贴——赤陶红做主强调，芥末黄、灰蓝、灰绿做辅，整体降饱和 */
+:root{
+  --bg:#FAF7F0; --ink:#26221C; --paper:#FFFFFF;
+  --yellow:#E9C46A; --pink:#C86B52; --blue:#5B7A9D; --green:#6E9885; --purple:#9A8FA3;
+  --fs:17px;
+}
+html.dark{
+  --bg:#211E19; --ink:#EFE9DD; --paper:#2B2721;
+  --yellow:#D8B25C; --pink:#D4795F; --blue:#7E9CBD; --green:#85AC97; --purple:#AC9FB6;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:-apple-system,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+  font-size:var(--fs);line-height:1.75;
+  overflow-x:hidden;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(0,0,0,.06) 1px, transparent 0);
+  background-size:26px 26px;
+}
+html.dark body{background-image:radial-gradient(circle at 1px 1px, rgba(255,255,255,.07) 1px, transparent 0)}
+main{max-width:760px;margin:0 auto;padding:0 20px 120px}
+section{margin-top:88px;position:relative}
+
+/* ── 顶部工具条 ── */
+.toolbar{position:fixed;top:14px;right:14px;z-index:50;display:flex;gap:8px}
+.toolbar button{
+  border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+  font-weight:900;font-size:14px;padding:6px 12px;min-height:44px;cursor:pointer;
+  box-shadow:3px 3px 0 var(--ink);border-radius:2px;
+}
+.toolbar button:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+
+/* ── 大字报标题 ── */
+h1,h2{font-weight:900;line-height:1.25;letter-spacing:.01em}
+.hero{margin-top:64px;padding-top:8px}
+.metaline{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.chip{
+  font-family:"SF Mono",Menlo,Consolas,monospace;font-size:13px;font-weight:700;
+  padding:5px 12px;border:2px solid var(--ink);border-radius:999px;
+  transform:rotate(-1.5deg);background:var(--paper);
+}
+.chip.hot{background:var(--yellow)}
+.hero h1{font-size:clamp(38px,8.5vw,72px)}
+.hero h1 .hl-y{background:linear-gradient(transparent 55%, var(--yellow) 55%)}
+.hero h1 .hl-p{background:linear-gradient(transparent 55%, var(--pink) 55%);color:#fff}
+.hero .sub{margin-top:20px;font-size:clamp(18px,3.5vw,22px);font-weight:700}
+.stamp{
+  display:inline-block;border:3px solid var(--pink);color:var(--pink);
+  font-weight:900;padding:2px 14px;transform:rotate(-6deg);
+  font-size:clamp(16px,3vw,20px);border-radius:4px;margin-left:8px;white-space:nowrap;
+}
+.hero30{
+  margin-top:34px;background:var(--paper);border:3px solid var(--ink);
+  box-shadow:8px 8px 0 var(--blue);padding:24px 22px;transform:rotate(-.6deg);
+}
+.hero30 p{font-weight:700;font-size:1.05em}
+.hero30 .arrownote{
+  margin-top:14px;font-size:.92em;font-family:"SF Mono",Menlo,Consolas,monospace;
+  color:var(--blue);font-weight:700;
+}
+.scrolldown{
+  margin-top:36px;font-family:"SF Mono",Menlo,monospace;font-size:14px;font-weight:700;
+  color:var(--ink);opacity:.75;
+}
+.scrolldown::after{content:"";display:inline-block;width:2px;height:1.1em;background:var(--ink);
+  margin-left:10px;vertical-align:-.2em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* ── 场景标题：贴纸胶带风 ── */
+.sec-head{display:inline-block;position:relative;margin-bottom:26px}
+.sec-no{
+  font-family:"SF Mono",monospace;font-weight:900;font-size:13px;letter-spacing:.15em;
+  background:var(--ink);color:var(--bg);padding:3px 10px;display:inline-block;transform:rotate(-2deg);
+}
+h2{font-size:clamp(26px,5.5vw,38px);margin-top:10px}
+h2 .marker{background:linear-gradient(transparent 58%, var(--yellow) 58%)}
+.sec-head::after{ /* 胶带 */
+  content:"";position:absolute;top:-12px;right:-26px;width:74px;height:24px;
+  background:rgba(61,123,255,.35);transform:rotate(8deg);border-radius:2px;
+}
+html.dark .sec-head::after{background:rgba(107,154,255,.4)}
+
+/* ── 卡片拼贴 ── */
+.cards{display:grid;gap:22px}
+.card{
+  background:var(--paper);border:3px solid var(--ink);padding:20px 20px 18px;
+  box-shadow:6px 6px 0 var(--ink);position:relative;
+}
+.card:nth-child(odd){transform:rotate(-.8deg)}
+.card:nth-child(even){transform:rotate(.7deg)}
+.card .no{
+  position:absolute;top:-16px;left:14px;font-weight:900;font-size:15px;
+  background:var(--pink);color:#fff;padding:2px 12px;transform:rotate(-3deg);
+  box-shadow:2px 2px 0 var(--ink);
+}
+.card:nth-child(2) .no{background:var(--blue)}
+.card:nth-child(3) .no{background:var(--green)}
+.card h3{font-size:1.15em;font-weight:900;margin-bottom:8px}
+.card p{font-size:.95em}
+
+/* ── 流程箭头 ── */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:0;margin-top:30px;font-weight:900}
+.flow .step{
+  border:3px solid var(--ink);padding:10px 16px;font-size:.95em;background:var(--yellow);
+  box-shadow:4px 4px 0 var(--ink);display:flex;align-items:center;
+}
+.flow .arr{display:flex;align-items:center;padding:0 10px;font-weight:900;font-size:1.3em;transform:rotate(8deg)}
+.flow .step.b{background:var(--blue);color:#fff}
+.flow .step.g{background:var(--green)}
+.flow .step.k{background:var(--ink);color:var(--bg)}
+
+/* ── 高亮引语块 ── */
+.quote{
+  margin:30px 0;padding:20px 22px;border-left:10px solid var(--pink);
+  background:var(--paper);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+  border-right:2px solid var(--ink);font-weight:800;font-size:1.08em;transform:rotate(.5deg);
+}
+.quote small{display:block;margin-top:10px;font-weight:400;font-size:.8em;opacity:.7}
+
+/* ── 像不像你 · 盖章清单 ── */
+.likeme{margin-top:8px}
+.likeme-item{
+  display:flex;gap:14px;align-items:flex-start;background:var(--paper);
+  border:3px solid var(--ink);padding:16px 16px;margin-bottom:16px;cursor:pointer;
+  box-shadow:5px 5px 0 var(--ink);position:relative;user-select:none;
+}
+.likeme-item:nth-child(1){transform:rotate(-.6deg)}
+.likeme-item:nth-child(2){transform:rotate(.5deg)}
+.likeme-item:nth-child(3){transform:rotate(-.4deg)}
+.likeme-item:nth-child(4){transform:rotate(.6deg)}
+.likeme-item:nth-child(5){transform:rotate(-.7deg)}
+.likeme-item:nth-child(6){transform:rotate(.4deg)}
+.likeme-item .box{
+  flex:0 0 auto;width:30px;height:30px;border:3px solid var(--ink);margin-top:3px;
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;
+  background:var(--bg);color:transparent;
+}
+.likeme-item.on .box{background:var(--green);color:var(--ink)}
+.likeme-item .txt b{font-weight:900}
+.likeme-item .txt span{display:block;font-size:.9em;opacity:.85}
+.likeme-item .hit{
+  position:absolute;right:12px;top:8px;font-weight:900;font-size:20px;color:var(--pink);
+  border:3px solid var(--pink);padding:0 10px;transform:rotate(-12deg) scale(0);transition:transform .18s;
+  pointer-events:none;background:var(--paper);
+}
+.likeme-item.on .hit{transform:rotate(-12deg) scale(1)}
+.likeme-count{
+  margin-top:20px;font-weight:900;font-size:1.05em;font-family:"SF Mono",monospace;
+}
+.likeme-count output{color:var(--pink)}
+
+/* ── 先猜再看 ── */
+[data-guess]{
+  margin:34px 0;background:var(--yellow);border:3px dashed var(--ink);
+  padding:22px 20px;transform:rotate(-.5deg);
+}
+html.dark [data-guess]{color:#141414}
+[data-guess] .q{font-weight:900;font-size:1.1em}
+[data-guess] .row{display:flex;gap:14px;align-items:center;margin-top:14px;flex-wrap:wrap}
+[data-guess] input[type=range]{flex:1;min-width:160px;accent-color:#141414;height:44px}
+[data-guess] output{font-weight:900;font-family:"SF Mono",monospace;font-size:1.2em}
+[data-guess] button{
+  border:2px solid var(--ink);background:var(--paper);font-weight:900;padding:10px 18px;
+  cursor:pointer;box-shadow:3px 3px 0 var(--ink);min-height:44px;font-size:15px;
+}
+[data-guess] button:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+[data-guess] .opts{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+[data-guess] .opts button{flex:1;min-width:130px}
+[data-guess] .reveal{margin-top:14px;font-weight:800}
+[data-guess].done{background:var(--green)}
+
+/* ── 现实条件 ── */
+.terms{display:grid;gap:14px;margin-top:6px}
+.term{
+  display:flex;gap:14px;align-items:baseline;background:var(--paper);
+  border:3px solid var(--ink);padding:14px 16px;box-shadow:4px 4px 0 var(--ink);
+}
+.term:nth-child(odd){transform:rotate(-.4deg)}
+.term:nth-child(even){transform:rotate(.4deg)}
+.term .ic{font-weight:900;color:var(--blue);flex:0 0 auto}
+.term p{font-size:.95em}
+
+/* ── 折叠层 ── */
+details{margin-top:18px;border:3px solid var(--ink);background:var(--paper);box-shadow:5px 5px 0 var(--purple)}
+details summary{
+  cursor:pointer;padding:14px 16px;font-weight:900;list-style:none;min-height:44px;
+  display:flex;align-items:center;gap:10px;
+}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸";font-size:1.1em;transition:transform .15s}
+details[open] summary::before{transform:rotate(90deg)}
+details .inner{padding:0 18px 16px;font-size:.93em}
+
+/* ── 投递三连问 ── */
+.send{
+  margin-top:30px;background:var(--pink);color:#fff;border:3px solid var(--ink);
+  box-shadow:8px 8px 0 var(--ink);padding:26px 22px;transform:rotate(-.6deg);
+}
+html.dark .send{color:#141414}
+.send h3{font-weight:900;font-size:1.3em}
+.send ol{margin:14px 0 0 1.4em}
+.send li{margin-bottom:8px;font-weight:600}
+.copyrow{display:flex;gap:12px;align-items:center;margin-top:20px;flex-wrap:wrap}
+.copyrow code{
+  font-family:"SF Mono",monospace;font-weight:700;background:rgba(255,255,255,.92);
+  color:#141414;padding:8px 12px;border:2px solid var(--ink);font-size:.95em;word-break:break-all;
+}
+.copyrow button{
+  border:2px solid var(--ink);background:var(--yellow);color:var(--ink);font-weight:900;
+  padding:10px 16px;cursor:pointer;box-shadow:3px 3px 0 var(--ink);min-height:44px;
+}
+.wechat{margin-top:12px;font-size:.9em;font-weight:700}
+
+/* ── 自测 ── */
+[data-quiz]{margin-top:60px}
+[data-quiz] .qz{background:var(--paper);border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);padding:18px;margin-bottom:18px}
+[data-quiz] .qz:nth-child(odd){transform:rotate(-.5deg)}
+[data-quiz] .qz:nth-child(even){transform:rotate(.5deg)}
+[data-quiz] .qz p.q{font-weight:900}
+[data-quiz] .qz .opts{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+[data-quiz] .qz .opts button{
+  flex:1;min-width:120px;border:2px solid var(--ink);background:var(--bg);color:var(--ink);
+  font-weight:700;padding:10px 12px;cursor:pointer;min-height:44px;font-size:14px;
+}
+[data-quiz] .opts button.right{background:var(--green)}
+[data-quiz] .opts button.wrong{background:var(--pink);color:#fff}
+[data-quiz] .ans{margin-top:12px;font-size:.9em;font-weight:700}
+
+/* ── 回到刚才 ── *//* ── 回到刚才 ── */
+#backBtn{
+  position:fixed;bottom:16px;right:16px;z-index:70;border:3px solid var(--ink);
+  background:var(--yellow);color:var(--ink);font-weight:900;padding:12px 18px;cursor:pointer;
+  box-shadow:4px 4px 0 var(--ink);min-height:48px;
+}
+
+/* ── 页脚 ── */
+footer{margin-top:80px;text-align:center;font-family:"SF Mono",monospace;font-size:13px;font-weight:700;opacity:.7}
+footer .cut{display:block;margin-bottom:18px;font-size:15px;letter-spacing:.2em}
+
+@media (max-width:520px){
+  .flow .arr{padding:0 6px}
+  .flow .step{padding:8px 10px;font-size:.85em}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <button id="fontMinus" title="调小字号">A−</button>
+  <button id="fontPlus" title="调大字号">A+</button>
+  <button id="darkToggle" title="明暗切换">◐</button>
+</div>
+
+<main>
+
+<!-- ═══ 首屏 30 秒版 ═══ -->
+<section data-hero class="hero">
+  <div class="metaline">
+    <span class="chip hot">招聘</span>
+    <span class="chip">北京 · 全职</span>
+    <span class="chip">FoundU.ai</span>
+    <span class="chip">AI 原生人才交易公司</span>
+  </div>
+  <h1>我想再找一个<br>能把<span class="hl-y">「高手经验」</span><br>变成 AI 工作流的人</h1>
+  <p class="sub">岗位：张美吉业务助理（AI 策略方向）· 北京 · 全职<span class="stamp">MUST</span></p>
+
+  <div class="hero30">
+    <p>今天一家 AI 原生公司真正缺的，不是会用几个工具的人，而是能钻进真实业务，把只长在高手脑子里的经验，拆成 AI 能理解、团队能使用、结果能验证的 <b>Skill、Agent 和工作流</b> 的人。</p>
+    <p class="arrownote">>> 不是传统助理，不是只写 PRD 的 AI 产品经理——更像站在业务和 AI 中间的「翻译器」。</p>
+  </div>
+
+  <div data-guess>
+    <p class="q">先猜一个数：把「感觉」变成公司能力之前，张美吉做人才判断做了多少年？</p>
+    <div class="row">
+      <input type="range" min="1" max="30" value="10" id="g1r">
+      <output id="g1o">10 年</output>
+      <button id="g1b">揭晓</button>
+    </div>
+    <p class="reveal" id="g1r2" hidden>答案：二十多年。 猜 10 年以下的，这家公司正好给你机会重新估一次。</p>
+  </div>
+
+  <p class="scrolldown">往下拉，60 秒看完这份 JD</p>
+</section>
+
+<!-- ═══ 场景 1：我们在做什么 ═══ -->
+<section data-scene="1">
+  <div class="sec-head">
+    <span class="sec-no">SCENE 01</span>
+    <h2>我们在做什么：<span class="marker">重做一遍</span></h2>
+  </div>
+  <div class="quote">
+    「我们不是给传统猎头接几个 AI 工具，而是想<b>重新做一遍</b>。」
+    <small>FoundU.ai：一家 AI 原生的人才交易公司，从「创始人业务助理」切入，帮创始人找到懂业务、会 AI、值得培养的年轻人。</small>
+  </div>
+  <div class="flow">
+    <span class="step">业务现场</span><span class="arr">→</span>
+    <span class="step b">高手经验</span><span class="arr">→</span>
+    <span class="step g">Skill / Agent / 工作流</span><span class="arr">→</span>
+    <span class="step k">组织能力</span>
+  </div>
+  <details>
+    <summary>展开看这一段的原文说法</summary>
+    <div class="inner">
+      <p>FoundU.ai 从「创始人业务助理」切入，帮助创始人找到懂业务、会 AI、值得培养的年轻人。张美吉做了二十多年人才判断形成的「感觉」，要逐步变成一家公司的能力。</p>
+    </div>
+  </details>
+</section>
+
+<!-- ═══ 场景 2：你会做什么 ═══ -->
+<section data-scene="2">
+  <div class="sec-head">
+    <span class="sec-no">SCENE 02</span>
+    <h2>你会做什么：站在<span class="marker">创始人这一侧</span></h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <span class="no">01 钻进去</span>
+      <h3>听懂没说出来的问题</h3>
+      <p>跟我一起听创始人访谈、客户会议和岗位讨论——理解客户<b>说出来的</b>需求，以及他<b>没说出来的</b>真正问题。</p>
+    </div>
+    <div class="card">
+      <span class="no">02 拆出来</span>
+      <h3>把判断变成 AI 能力</h3>
+      <p>把现场里的判断拆成 <b>Skill、Agent、知识库、评测标准和工作流</b>。</p>
+    </div>
+    <div class="card">
+      <span class="no">03 装回去</span>
+      <h3>装进真实业务，再迭代</h3>
+      <p>和 CEO、AI 策略顾问、人才交付及客户成功团队一起，把版本装进真实业务，再根据结果继续迭代。</p>
+    </div>
+  </div>
+  <div class="quote">
+    「业务现场产生经验，你把经验变成 AI 能力；团队使用后产生结果，你再把结果变成<b>下一版</b> AI 能力。」
+    <small>这是一个循环，不是一个项目。跑完一圈，能力就长在公司身上。</small>
+  </div>
+</section>
+
+<!-- ═══ 场景 3：我们希望你 ═══ -->
+<section data-scene="3">
+  <div class="sec-head">
+    <span class="sec-no">SCENE 03</span>
+    <h2>我们希望你是什么样的人：<span class="marker">点一下，盖个章</span></h2>
+  </div>
+  <p>下面 6 条，哪条像你，就点哪条。盖满 4 个章，这份 JD 基本就是写给你的。</p>
+
+  <div class="likeme" id="likeme">
+    <div class="likeme-item" tabindex="0" role="button">
+      <span class="box">✓</span>
+      <span class="txt"><b>你是 AI 原住民</b>
+      <span>遇到任务自然判断：哪些交给 AI、怎么给上下文设标准、什么时候用模型或工作流、什么时候该人工做。</span></span>
+      <span class="hit">是本人</span>
+    </div>
+    <div class="likeme-item" tabindex="0" role="button">
+      <span class="box">✓</span>
+      <span class="txt"><b>你有 AI sense，不只是工具熟练</b>
+      <span>不迷信 AI，也接受 AI 进产业——不只有 fancy，更多是一起做 Dirty Work。Vibe Coding 加分，不是必选。</span></span>
+      <span class="hit">是本人</span>
+    </div>
+    <div class="likeme-item" tabindex="0" role="button">
+      <span class="box">✓</span>
+      <span class="txt"><b>你对「人」这门生意有兴趣</b>
+      <span>我们不是 AI for AI。AI 最终服务的是：创始人为什么需要一个人，年轻人为什么愿意跟随一个老板。</span></span>
+      <span class="hit">是本人</span>
+    </div>
+    <div class="likeme-item" tabindex="0" role="button">
+      <span class="box">✓</span>
+      <span class="txt"><b>你既能抽象，也愿意下场</b>
+      <span>能从十段对话里找规律，也愿意整理语料、标注样本、测试结果、修改规则。</span></span>
+      <span class="hit">是本人</span>
+    </div>
+    <div class="likeme-item" tabindex="0" role="button">
+      <span class="box">✓</span>
+      <span class="txt"><b>你能 P 也能 J</b>
+      <span>像 P 人一样发现机会，最后像 J 人一样收进文档、流程、版本和结果里。</span></span>
+      <span class="hit">是本人</span>
+    </div>
+    <div class="likeme-item" tabindex="0" role="button">
+      <span class="box">✓</span>
+      <span class="txt"><b>你做出过东西，讲得清为什么</b>
+      <span>做过 AI 产品、Agent、工作流、知识库或评测体系；参加过黑客松或独立项目。不在意你是不是标准候选人，在意你能不能讲清楚为什么这样设计，结果到底好不好。</span></span>
+      <span class="hit">是本人</span>
+    </div>
+    <p class="likeme-count">已盖章：<output id="stampCount">0</output> / 6 <span id="stampMsg"></span></p>
+  </div>
+
+  <div data-guess>
+    <p class="q">再猜一次：投递的时候，除了简历 / Profile，还必须带上什么？</p>
+    <div class="opts" id="g2opts">
+      <button data-a="0">一封诚恳的自荐信</button>
+      <button data-a="1">一件你真正用 AI 做出来的东西</button>
+      <button data-a="0">一份成绩单</button>
+    </div>
+    <p class="reveal" id="g2r" hidden>答案：一件你真正用 AI 做出来的东西。 而且要讲清：它解决了什么真实问题；哪部分是你做的、哪部分是 AI 做的；你怎么判断它真的有效。</p>
+  </div>
+</section>
+
+<!-- ═══ 场景 4：你会得到什么 ═══ -->
+<section data-scene="4">
+  <div class="sec-head">
+    <span class="sec-no">SCENE 04</span>
+    <h2>你会得到什么：<span class="marker">近距离 + 从 0 到 1</span></h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <span class="no">看</span>
+      <h3>近距离接触一批创始人</h3>
+      <p>来自不同产业的优秀创始人，他们的真实问题和真实决策，你都在现场。</p>
+    </div>
+    <div class="card">
+      <span class="no">做</span>
+      <h3>参与一家公司从 0 到 1</h3>
+      <p>一家 AI 原生人才交易公司的地基阶段，你在。</p>
+    </div>
+    <div class="card">
+      <span class="no">带</span>
+      <h3>直接 Sponsor 与 Mentor</h3>
+      <p>项目 CEO 和 AI 策略顾问直接带——他们<b>挣过钱、打过仗、带过队</b>。</p>
+    </div>
+    <div class="card">
+      <span class="no">长</span>
+      <h3>做得好，路很宽</h3>
+      <p>可以继续做 AI 策略、AI 产品，也可以成长为 FoundU.ai 企业端策略的<b>一号位</b>。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 场景 5：现实条件 ═══ -->
+<section data-scene="5">
+  <div class="sec-head">
+    <span class="sec-no">SCENE 05</span>
+    <h2>现实条件：<span class="marker">先说清楚</span></h2>
+  </div>
+  <div class="terms">
+    <div class="term"><span class="ic">01</span><p><b>北京，全职——这是 MUST。</b>特别合适的长期实习可以聊，但不能只想来体验。</p></div>
+    <div class="term"><span class="ic">02</span><p>更倾向有<b>一年工作经验</b>，或扎实的产品、创业、AI 项目经历。</p></div>
+    <div class="term"><span class="ic">03</span><p>薪酬根据能力具体聊，也会有<b>项目激励</b>。</p></div>
+    <div class="term"><span class="ic">04</span><p>希望彼此投入<b>一到两年</b>，每 3 个月设一个 milestone。</p></div>
+  </div>
+</section>
+
+<!-- ═══ 场景 6：怎么联系 ═══ -->
+<section data-scene="6">
+  <div class="sec-head">
+    <span class="sec-no">SCENE 06</span>
+    <h2>怎么联系：<span class="marker">带作品来</span></h2>
+  </div>
+  <div class="send">
+    <h3>投递三连问（作品请附上）</h3>
+    <ol>
+      <li>它解决了什么<b>真实问题</b>？</li>
+      <li>哪部分是<b>你做的</b>、哪部分是 <b>AI 做的</b>？</li>
+      <li>你<b>怎么判断</b>它真的有效？</li>
+    </ol>
+    <div class="copyrow">
+      <code id="mail">maggie.zhang@founduai.com</code>
+      <button id="copyBtn">复制邮箱</button>
+    </div>
+    <p class="wechat">微信：maggiezhangmeiji（备注：<b>即刻＋AI策略</b>）</p>
+  </div>
+  <div class="quote">
+    「我不想找一个『听话』『学生心态』或只会侃侃而谈的助理。我想找一个能和我一起，把<b>你想干的、你能干的、我想让你干的</b>揉在一起的人。」
+  </div>
+</section>
+
+<!-- ═══ 你答得上来吗 ═══ -->
+<div data-quiz>
+  <div class="sec-head">
+    <span class="sec-no">FINAL</span>
+    <h2>你答得上来吗？</h2>
+  </div>
+  <div class="qz" data-ans="1">
+    <p class="q">Q1 · 这个岗位最像什么？</p>
+    <div class="opts">
+      <button data-i="0">传统行政助理</button>
+      <button data-i="1">站在业务和 AI 中间的翻译器</button>
+      <button data-i="2">只写 PRD 的 AI 产品经理</button>
+    </div>
+    <p class="ans" hidden>对。原文明确说：不是传统助理，也不是只写 PRD 的 AI 产品经理，更像一个站在业务和 AI 中间的翻译器。</p>
+  </div>
+  <div class="qz" data-ans="2">
+    <p class="q">Q2 · 「业务现场产生经验」之后，下一步是什么？</p>
+    <div class="opts">
+      <button data-i="0">直接招人</button>
+      <button data-i="1">写一份总结报告</button>
+      <button data-i="2">把经验变成 AI 能力</button>
+    </div>
+    <p class="ans" hidden>对。业务现场产生经验，你把经验变成 AI 能力；团队使用后产生结果，再把结果变成下一版 AI 能力。</p>
+  </div>
+  <div class="qz" data-ans="1">
+    <p class="q">Q3 · 投递必须带什么？</p>
+    <div class="opts">
+      <button data-i="0">只发简历</button>
+      <button data-i="1">简历 + 一件你真正用 AI 做出来的东西</button>
+      <button data-i="2">推荐信</button>
+    </div>
+    <p class="ans" hidden>对。除了简历或 Profile，请再发一件你真正用 AI 做出来的东西，并回答三个问题。</p>
+  </div>
+</div>
+
+<footer>
+  <span class="cut">- - - - - - - ✂ - - - - - - -</span>
+  FoundU.ai · 张美吉业务助理（AI 策略方向）· 北京 · 全职<br>
+  沿虚线剪下，装进你的投递材料里。
+</footer>
+
+</main>
+
+<button id="backBtn" hidden>← 回到刚才</button>
+
+<script>
+
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+const motionOK = () => !matchMedia("(prefers-reduced-motion: reduce)").matches;
+const store = {
+  get(k){ try{ return localStorage.getItem(k); }catch{ return null; } },
+  set(k,v){ try{ localStorage.setItem(k,v); }catch{} }
+};
+
+/* 跳转栈 + 回到刚才 */
+const backStack = [];
+const backBtn = $("#backBtn");
+function jumpTo(id){
+  backStack.push(scrollY);
+  history.pushState({ y: scrollY }, "");
+  document.getElementById(id).scrollIntoView({ behavior: motionOK() ? "smooth" : "auto" });
+  backBtn.hidden = false;
+}
+function goBack(){
+  const y = backStack.pop();
+  if(y != null) scrollTo({ top: y, behavior: motionOK() ? "smooth" : "auto" });
+  backBtn.hidden = backStack.length === 0;
+}
+backBtn.addEventListener("click", goBack);
+addEventListener("popstate", e => {
+  if(e.state && e.state.y != null){ backStack.pop(); scrollTo(0, e.state.y); backBtn.hidden = backStack.length === 0; }
+});
+
+/* 明暗 */
+const darkBtn = $("#darkToggle");
+function setDark(on){ document.documentElement.classList.toggle("dark", on); store.set("jd-dark", on ? "1" : "0"); }
+if(store.get("jd-dark") === "1") setDark(true); /* 默认白底，仅当之前手动切过深色才恢复 */
+darkBtn.addEventListener("click", () => setDark(!document.documentElement.classList.contains("dark")));
+
+/* 字号 */
+let fs = parseInt(store.get("jd-fs") || "17", 10);
+function applyFs(){ document.documentElement.style.setProperty("--fs", fs + "px"); store.set("jd-fs", String(fs)); }
+applyFs();
+$("#fontPlus").addEventListener("click", () => { fs = Math.min(22, fs + 1); applyFs(); });
+$("#fontMinus").addEventListener("click", () => { fs = Math.max(14, fs - 1); applyFs(); });
+
+/* 猜一猜 1 */
+const g1r = $("#g1r"), g1o = $("#g1o");
+g1r.addEventListener("input", () => g1o.textContent = g1r.value + " 年");
+$("#g1b").addEventListener("click", function(){
+  $("#g1r2").hidden = false;
+  this.parentElement.parentElement.classList.add("done");
+  this.disabled = true;
+});
+
+/* 猜一猜 2 */
+$$("#g2opts button").forEach(b => b.addEventListener("click", function(){
+  $("#g2r").hidden = false;
+  this.parentElement.parentElement.classList.add("done");
+  if(this.dataset.a === "1") this.classList.add("right"); else this.classList.add("wrong");
+  $$("#g2opts button").forEach(x => x.disabled = true);
+}));
+
+/* 盖章清单 */
+let stamps = 0;
+const msgs = ["继续继续。", "有点像了。", "过半了。", "四章在手，这份 JD 就是你。", "就差一个了。", "全中——你该直接发邮件了。"];
+$$(".likeme-item").forEach(it => {
+  const toggle = () => {
+    it.classList.toggle("on");
+    stamps = document.querySelectorAll(".likeme-item.on").length;
+    $("#stampCount").textContent = stamps;
+    $("#stampMsg").textContent = stamps ? "· " + msgs[stamps - 1] : "";
+    store.set("jd-stamps", String(stamps));
+  };
+  it.addEventListener("click", toggle);
+  it.addEventListener("keydown", e => { if(e.key === "Enter" || e.key === " "){ e.preventDefault(); toggle(); } });
+});
+
+/* 自测题 */
+$$(".qz").forEach(qz => {
+  const ans = +qz.dataset.ans;
+  qz.querySelectorAll(".opts button").forEach(b => b.addEventListener("click", function(){
+    const pick = +this.dataset.i;
+    const ansEl = qz.querySelector(".ans");
+    ansEl.hidden = false;
+    const expl = ansEl.textContent.replace(/^对。/, "");
+    ansEl.textContent = pick === ans
+      ? "对。" + expl
+      : "不对，正确答案已标绿。" + expl;
+    qz.querySelectorAll(".opts button").forEach(x => {
+      x.disabled = true;
+      if(+x.dataset.i === ans) x.classList.add("right");
+    });
+    if(pick !== ans) this.classList.add("wrong");
+  }));
+});
+
+/* 复制邮箱 */
+$("#copyBtn").addEventListener("click", function(){
+  const done = () => { this.textContent = "已复制 ✓"; setTimeout(() => this.textContent = "复制邮箱", 1600); };
+  if(navigator.clipboard) navigator.clipboard.writeText($("#mail").textContent).then(done, done);
+  else done();
+});
+
+/* 阅读进度（静默记住位置，不再弹提示） */
+let ticking = false;
+addEventListener("scroll", () => {
+  if(ticking) return; ticking = true;
+  requestAnimationFrame(() => { store.set("jd-scroll", String(scrollY)); ticking = false; });
+}, { passive: true });
+</script>
+</body>
+</html>
